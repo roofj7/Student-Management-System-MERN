@@ -8,9 +8,14 @@ app.use(cors());
 app.use(bodyparser.json());
 
 // DB Connection
-mongoose.connect('mongodb+srv://admin:admin123@cluster0.jvcxb2w.mongodb.net/StudentDB?retryWrites=true&w=majority')
-.then(()=>console.log("MongoDB Connected"))
-.catch(err=>console.log(err));
+// DB Connection
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB Connected"))
+.catch(err => console.log(err));
+
 
 // Schema
 const StudentSchema = new mongoose.Schema({
