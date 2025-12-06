@@ -4,7 +4,12 @@ const cors = require('cors');
 const bodyparser = require('body-parser');
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: '*',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
+}));
+
 app.use(bodyparser.json());
 
 // DB Connection
@@ -85,3 +90,4 @@ app.delete('/api/students/:id', async(req,res)=>{
 });
 
 app.listen(5000, ()=>console.log("Server running on port 5000"));
+
