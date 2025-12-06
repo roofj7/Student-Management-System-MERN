@@ -7,7 +7,8 @@ function UpdateStudent(){
 
     const onSubmit = async({StudentId,CGPA})=>{
         try{
-            await axios.put(`http://localhost:5000/api/students/${StudentId}`, {CGPA});
+            await axios.put(`${process.env.REACT_APP_API_URL}/students/${StudentId}`, {CGPA});
+
             alert("CGPA Updated Successfully");
         }catch(err){
             alert("Student Not Found");
@@ -32,3 +33,4 @@ function UpdateStudent(){
     )
 }
 export default UpdateStudent;
+
