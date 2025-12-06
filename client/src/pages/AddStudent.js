@@ -9,7 +9,8 @@ function AddStudent(){
 
     const onSubmit = async(data)=>{
         try{
-            await axios.post('http://localhost:5000/api/students', data);
+            await axios.post(`${process.env.REACT_APP_API_URL}/students`, data);
+
             toast.success("Student Added Successfully");
             reset();
         }catch(err){
@@ -42,3 +43,4 @@ function AddStudent(){
     )
 }
 export default AddStudent;
+
