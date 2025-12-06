@@ -9,7 +9,8 @@ function DeleteStudent(){
 
     const onSubmit = async({StudentId})=>{
         try{
-            await axios.delete(`http://localhost:5000/api/students/${StudentId}`);
+            await axios.delete(`${process.env.REACT_APP_API_URL}/students/${StudentId}`);
+
             toast.success("Student Deleted Successfully");
 
         }catch(err){
@@ -33,3 +34,4 @@ function DeleteStudent(){
     )
 }
 export default DeleteStudent;
+
