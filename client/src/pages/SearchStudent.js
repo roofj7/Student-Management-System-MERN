@@ -10,7 +10,8 @@ function SearchStudent(){
 
     const onSubmit = async({StudentId})=>{
         try{
-            const res = await axios.get(`http://localhost:5000/api/students/${StudentId}`);
+            const res = await axios.get(`${process.env.REACT_APP_API_URL}/students/${StudentId}`);
+
             setStudent(res.data);
         }catch(err){
             setStudent(null);
@@ -43,3 +44,4 @@ function SearchStudent(){
     )
 }
 export default SearchStudent;
+
